@@ -21,22 +21,28 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from device.mk
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common spark stuff.
+$(call inherit-product, vendor/spark/config/common_full_phone.mk)
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_SUPPORTS_QUICK_TAP  := true
+TARGET_BOOT_ANIMATION_RES := 1440
+
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+  ro.spark.maintainer= lolipuru
 
 IS_PHONE := true
 
-PRODUCT_NAME := lineage_pdx215
+PRODUCT_NAME := spark_pdx215
 PRODUCT_DEVICE := pdx215
 PRODUCT_MANUFACTURER := Sony
 PRODUCT_BRAND := Sony
-PRODUCT_MODEL := pdx215
+PRODUCT_MODEL := Xperia 1 III
 
 PRODUCT_GMS_CLIENTID_BASE := android-sonymobile
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE=pdx215 \
-    TARGET_PRODUCT=pdx215 \
+    TARGET_PRODUCT=XQ-BC72 \
     PRIVATE_BUILD_DESC="Sony qssi 12 SKQ1.211006.001 user release-keys"
 
 BUILD_FINGERPRINT := Sony/qssi/qssi:12/SKQ1.211006.001/1:user/release-keys
